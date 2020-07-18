@@ -2,6 +2,9 @@
   <dictionary name="cxw">
     <words>
       <w>dataset</w>
+      <w>dropna</w>
+      <w>importances</w>
+      <w>kpca</w>
       <w>logit</w>
       <w>misclassifications</w>
       <w>perceptron</w>

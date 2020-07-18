@@ -102,17 +102,17 @@ class LogisticRegressionGD(object):
         # return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
 
 
-X_train_01_subset = X_train[(y_train == 0) | (y_train == 1)]
+X_train_01_subset = X_train_std[(y_train == 0) | (y_train == 1)]
 y_train_01_subset = y_train[(y_train == 0) | (y_train == 1)]
 
 lrgd = LogisticRegressionGD(eta=.05, n_iter=1000, random_state=1)
 lrgd.fit(X_train_01_subset, y_train_01_subset)
-y_pred = lrgd.predict(X_test)
+y_pred = lrgd.predict(X_test_Std)
 print((y_pred == y_test).sum())
 
 
 from sklearn.linear_model import LogisticRegression
-lr = LogisticRegression(C=100, random_state=1)
+lr = LogisticRegression(random_state=1, penalty='l1', C=1.0)
 lr.fit(X_train_std, y_train)
 
 
